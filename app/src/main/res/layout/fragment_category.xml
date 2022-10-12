@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:padding="12dp"
+    android:padding="7dp"
+
     tools:context=".fragments.CategoryFragment">
 
     <ImageView
@@ -21,13 +22,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="@style/Rounded"
+        android:hint="Category Name"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -35,15 +40,16 @@
             android:layout_width="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_height="match_parent"
-            android:hint="Category Name" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/background"
+
         android:text="Upload Category"
 
         app:layout_constraintEnd_toEndOf="parent"
