@@ -12,11 +12,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.shoppieadmin.R
+import com.example.shoppieadmin.adapter.CategoryAdapter
 import com.example.shoppieadmin.databinding.FragmentCategoryBinding
+import com.example.shoppieadmin.model.CategoryModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CategoryFragment : Fragment() {
@@ -41,6 +44,9 @@ class CategoryFragment : Fragment() {
         dialog= Dialog(requireContext())
         dialog.setContentView(R.layout.progress_layout)
         dialog.setCancelable(false)
+
+        getData()
+
         binding.apply {
             imageView.setOnClickListener {
                 val intent= Intent("android.intent.action.GET_CONTENT")
@@ -52,6 +58,19 @@ class CategoryFragment : Fragment() {
             }
         }
         return binding.root
+    }
+
+    private fun getData() {
+        val list = ArrayList<CategoryModel>()
+        Firebase.firestore.collection("categories")
+            .get().addOnSuccessListener {
+                list.clear()
+                for (doc in it.documents){
+                    val data = doc.toObject(CategoryModel::class.java)
+                    list.add(data!!)
+                }
+                binding.categoryRecycler.adapter = CategoryAdapter(requireContext(),list)
+            }
     }
 
     private fun validateData(categoryName: String) {
@@ -96,6 +115,9 @@ class CategoryFragment : Fragment() {
         db.collection("categories").add(data)  // add -> when no document otherwise set
             .addOnSuccessListener {
                 dialog.dismiss()
+                binding.imageView.setImageResource(R.drawable.preview)
+                binding.categoryName.text=null
+                getData()
                 Toast.makeText(requireContext(),"Category Added",Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
