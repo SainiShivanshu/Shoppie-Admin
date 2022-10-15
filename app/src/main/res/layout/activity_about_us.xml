@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="20dp"/>
+
+
+            <ImageView
+               android:layout_margin="25dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:textSize="14dp"
+                android:layout_gravity="center_horizontal"
+                android:text="This app is designed for admin to operate various things in User App."/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="5dp"
+
+                android:textSize="14dp"
+              android:id="@+id/text"
+                android:text="App is designed by Shivanshu Saini. Feel free to contact us."
+
+              />
+
+
+
+            <ImageView
+                android:layout_gravity="end"
+                android:layout_marginEnd="25dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pch"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:fontFamily="serif-monospace"
+
+                android:textColor="@color/black"
+                android:text="© Copyright 2022"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
